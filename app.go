@@ -65,7 +65,7 @@ func VerificationEndpoint(w http.ResponseWriter, r *http.Request) {
 	mode := r.URL.Query().Get("hub.mode")
 	token := r.URL.Query().Get("hub.verify_token")
 
-	if mode != "" && token == os.Getenv("VERIFY_TOKEN") {
+	if mode != "" && token == os.Getenv("test") {
 		w.WriteHeader(200)
 		w.Write([]byte(challenge))
 	} else {
